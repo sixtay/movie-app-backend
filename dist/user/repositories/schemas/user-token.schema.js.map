@@ -1,0 +1,1 @@
+{"version":3,"file":"user-token.schema.js","sourceRoot":"","sources":["../../../../src/user/repositories/schemas/user-token.schema.ts"],"names":[],"mappings":";;;AAAA,uCAAkC;AAGrB,QAAA,eAAe,GAAG,IAAI,iBAAM,CACvC;IACE,MAAM,EAAE,MAAM;IACd,KAAK,EAAE,MAAM;IACb,IAAI,EAAE,MAAM;IACZ,SAAS,EAAE,IAAI;CAChB,EACD,EAAE,UAAU,EAAE,IAAI,EAAE,CACrB,CAAC"}

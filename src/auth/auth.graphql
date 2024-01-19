@@ -1,0 +1,47 @@
+#import '../user/user.graphql'
+
+enum ServiceTypes{
+  MagicLink
+  Credentials
+  Facebook
+  Google
+  Apple
+  JWT
+}
+
+input LoginParamsInput {
+  accessToken: String
+  accessTokenSecret: String
+  email: String
+  firstName: String
+  lastName: String
+  password: String
+}
+
+input LoginInput {
+  params: LoginParamsInput!
+  service: ServiceTypes!
+}
+
+type Mutation {
+  loginProvider(loginInput: LoginInput): Account!
+  login(email: String!): Boolean!
+  refreshAuthTokens(refreshToken: String!): Tokens!
+  logout: LogoutResult!
+  register(email: String!, password: String!): Account!
+}
+
+type LogoutResult {
+  success: Boolean
+}
+
+type Tokens {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type Account {
+  id: ID!
+  user: User
+  tokens: Tokens
+}

@@ -1,0 +1,62 @@
+scalar DateTime
+
+interface MovieInterface {
+  title: String!
+  director: String
+  image: String!
+  releaseDate: DateTime
+  duration: Int
+  genre: String
+  publishedYear: Int!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Movie implements MovieInterface {
+  id: ID!
+  title: String!
+  image: String!
+  releaseDate: DateTime
+  genre: String
+  duration: Int
+  director: String
+  publishedYear: Int!
+  createdAt: DateTime
+  updatedAt: DateTime  
+}
+
+input MoviePayload {
+  title: String!
+  image: String!
+  publishedYear: Int!
+  releaseDate: DateTime
+  genre: String
+  duration: Int
+  director: String
+}
+
+input CreateMovieInput {
+  title: String!
+  image: String!
+  releaseDate: DateTime
+  genre: String
+  duration: Int
+  director: String
+  publishedYear: Int!
+}
+
+input UpdateMovieInput {
+  id: ID!
+  movie: MoviePayload!
+}
+
+type Query {
+  movies: [Movie]!
+  movie(id: ID!): Movie
+}
+
+type Mutation {
+  createMovie(createMovieInput: CreateMovieInput!): Movie!
+  updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
+  removeMovie(id: ID!): Movie
+}
